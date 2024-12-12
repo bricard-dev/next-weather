@@ -2,6 +2,7 @@ import { fetchWeather } from '@/lib/data';
 import FeelsLike from './feels-like';
 import MainWeather from './main';
 import Sunset from './sunset';
+import Wind from './wind';
 
 interface WeatherInformationsProps {
   query: string;
@@ -30,9 +31,7 @@ export default async function WeatherInformations({
         sunrise={weatherData.sys.sunrise}
       />
       <FeelsLike feelsLike={weatherData.main.feels_like} />
-      <div className=" border">
-        <h1>Wind</h1>
-      </div>
+      <Wind wind={weatherData.wind} />
       <div className="border">
         <h1>5-Day forecast</h1>
       </div>

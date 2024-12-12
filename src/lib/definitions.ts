@@ -18,6 +18,7 @@ export interface WeatherData {
   }>;
   wind: {
     speed: number;
+    deg: number;
   };
   visibility: number;
   dt: number;
