@@ -1,6 +1,6 @@
-import { WeatherData } from './definitions';
+import { HourForecastData, WeatherData } from './definitions';
 
-const baseWeatherUrl = `https://api.openweathermap.org/data/2.5/weather`;
+const baseUrl = 'https://api.openweathermap.org/data/2.5';
 
 export const fetchWeather = async (
   search?: string,
@@ -14,7 +14,7 @@ export const fetchWeather = async (
     const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
     const response = await fetch(
-      `${baseWeatherUrl}?q=${search}&appid=${apiKey}&units=${units}`,
+      `${baseUrl}/weather?q=${search}&appid=${apiKey}&units=${units}`,
       {
         cache: 'no-store',
         next: {
@@ -31,5 +31,34 @@ export const fetchWeather = async (
     return data;
   } catch (error) {
     console.error('Error fetching weather data:', error);
+  }
+};
+
+export const fetch3HourForecast = async (
+  search?: string,
+  count: number = 16,
+  units: string = 'metric'
+): Promise<HourForecastData | undefined> => {
+  if (!search) return;
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+
+    const response = await fetch(
+      `${baseUrl}/forecast?q=${search}&appid=${apiKey}&units=${units}&cnt=${count}`,
+      {
+        cache: 'no-store',
+        next: {
+          tags: ['forecast'],
+        },
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching 5-day forecast data:', error);
   }
 };
