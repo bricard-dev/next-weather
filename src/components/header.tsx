@@ -1,3 +1,9 @@
+import Navbar from './navbar';
+
 export default function Header() {
-  return <header className="container mx-auto p-4 border-b">Header</header>;
+  return (
+    <header className="p-4 border-b">
+      <Navbar />
+    </header>
+  );
 }
