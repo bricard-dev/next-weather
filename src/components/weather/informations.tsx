@@ -1,4 +1,5 @@
 import { fetchWeather } from '@/lib/data';
+import FeelsLike from './feels-like';
 import MainWeather from './main';
 import Sunset from './sunset';
 
@@ -28,6 +29,7 @@ export default async function WeatherInformations({
         sunset={weatherData.sys.sunset}
         sunrise={weatherData.sys.sunrise}
       />
+      <FeelsLike feelsLike={weatherData.main.feels_like} />
       <div className=" border">
         <h1>Wind</h1>
       </div>
@@ -42,9 +44,6 @@ export default async function WeatherInformations({
       </div>
       <div className="border">
         <h1>UV Index</h1>
-      </div>
-      <div className="border">
-        <h1>Feels like</h1>
       </div>
       <div className="border">
         <h1>Pressure</h1>

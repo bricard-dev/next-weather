@@ -14,7 +14,7 @@ export default function Sunset({ sunset, sunrise }: SunsetProps) {
   };
 
   return (
-    <div className="col-span-1 row-span-1 border rounded-lg p-4">
+    <div className="border rounded-lg p-4">
       <h2 className="mb-2 flex items-center gap-2 font-semibold text-xs uppercase">
         <SunsetIcon className="w-4 h-4" />
         Sunset
