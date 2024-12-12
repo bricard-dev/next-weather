@@ -1,5 +1,6 @@
 import { fetchWeather } from '@/lib/data';
 import FeelsLike from './feels-like';
+import Humidity from './humidity';
 import MainWeather from './main';
 import Pressure from './pressure';
 import Sunset from './sunset';
@@ -36,6 +37,7 @@ export default async function WeatherInformations({
       <Wind wind={weatherData.wind} />
       <Visibility visibility={weatherData.visibility} />
       <Pressure pressure={weatherData.main.pressure} />
+      <Humidity humidity={weatherData.main.humidity} />
       <div className="border">
         <h1>5-Day forecast</h1>
       </div>
