@@ -1,5 +1,6 @@
 import { fetchWeather } from '@/lib/data';
 import MainWeather from './main';
+import Sunset from './sunset';
 
 interface WeatherInformationsProps {
   query: string;
@@ -11,20 +12,22 @@ export default async function WeatherInformations({
   const weatherData = await fetchWeather(query);
 
   if (!weatherData) {
-    return <p className="text-center text-muted-foreground">No results.</p>;
+    return (
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase select-none">
+          No results
+        </p>
+      </div>
+    );
   }
 
   return (
-    <div className="grid sm:grid-cols-5 gap-4">
+    <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
       <MainWeather weatherData={weatherData} />
-
-      {/* <div className="sm:col-span-3 border p-4">
-        <h1 className="text-xl font-semibold mb-4">Qualité de l'air</h1>
-        <AirQualityGauge aqi={2} />
-      </div> */}
-      <div className=" border">
-        <h1>Sunset / Sunrise</h1>
-      </div>
+      <Sunset
+        sunset={weatherData.sys.sunset}
+        sunrise={weatherData.sys.sunrise}
+      />
       <div className=" border">
         <h1>Wind</h1>
       </div>

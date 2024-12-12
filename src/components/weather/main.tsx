@@ -39,7 +39,7 @@ export default function MainWeather({ weatherData }: MainWeatherProps) {
   const WeatherIcon = getWeatherIcon(weatherData.weather[0].icon);
 
   return (
-    <div className="sm:col-span-2 sm:row-span-2 border rounded-lg p-4">
+    <div className="col-span-3 sm:col-span-2 sm:row-span-2 border rounded-lg p-4">
       <div className="mb-2 flex justify-between items-center text-sm text-muted-foreground">
         <p>{formattedDate}</p>
         <p>{formattedTime}</p>
