@@ -2,6 +2,7 @@ import { fetchWeather } from '@/lib/data';
 import FeelsLike from './feels-like';
 import MainWeather from './main';
 import Sunset from './sunset';
+import Visibility from './visibility';
 import Wind from './wind';
 
 interface WeatherInformationsProps {
@@ -38,9 +39,7 @@ export default async function WeatherInformations({
       <div className="border">
         <h1>3-Hourly forecast</h1>
       </div>
-      <div className="border">
-        <h1>Visibility</h1>
-      </div>
+      <Visibility visibility={weatherData.visibility} />
       <div className="border">
         <h1>UV Index</h1>
       </div>
