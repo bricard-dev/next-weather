@@ -1,3 +1,5 @@
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -34,7 +36,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Header />
+          <main className="container mx-auto flex-1 p-4">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
