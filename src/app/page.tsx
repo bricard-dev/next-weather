@@ -10,6 +10,7 @@ export default async function Home(props: {
 
   return (
     <main className="max-w-5xl w-full mx-auto flex-1 flex flex-col p-4">
+      <h1 className="sr-only">Next Weather</h1>
       {query ? (
         <Suspense key={query} fallback={<WeatherSkeleton />}>
           <WeatherInformations query={query} />
