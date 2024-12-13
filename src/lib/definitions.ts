@@ -30,17 +30,29 @@ export interface WeatherData {
   };
 }
 
-export interface HourForecastData {
-  list: Array<{
-    dt: number;
-    main: {
-      temp: number;
-    };
-    weather: Array<{
-      id: number;
-      main: string;
-      description: string;
-      icon: string;
-    }>;
+export interface HourForecast {
+  dt: number;
+  main: {
+    temp: number;
+  };
+  weather: Array<{
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
   }>;
+  dt_txt: string;
+}
+
+export interface HourForecastData {
+  list: Array<HourForecast>;
+}
+
+export interface DayAverageTemp {
+  date: Date;
+  icon: string;
+  temp: {
+    min: number;
+    max: number;
+  };
 }

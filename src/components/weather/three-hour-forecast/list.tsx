@@ -12,7 +12,7 @@ export default async function ThreeHourForecast({
   const forecast = await fetch3HourForecast(query);
   return (
     <div className="col-span-3 border rounded-lg p-4 overflow-hidden">
-      <h2 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase">
+      <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase">
         <CalendarIcon className="w-4 h-4" />
         3-Hourly forecast
       </h2>

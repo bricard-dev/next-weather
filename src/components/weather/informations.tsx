@@ -1,5 +1,6 @@
 import { fetchWeather } from '@/lib/data';
 import { Suspense } from 'react';
+import FiveDayForecast from './day-forecast/list';
 import FeelsLike from './feels-like';
 import Humidity from './humidity';
 import MainWeather from './main';
@@ -43,9 +44,9 @@ export default async function WeatherInformations({
       <Suspense fallback={<div>Loading...</div>}>
         <ThreeHourForecast query={query} />
       </Suspense>
-      <div className="border">
-        <h1>5-Day forecast</h1>
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <FiveDayForecast query={query} />
+      </Suspense>
       <div className="border">
         <h1>UV Index</h1>
       </div>

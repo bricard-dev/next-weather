@@ -14,7 +14,7 @@ const formatTime = (
   timeOptions: Intl.DateTimeFormatOptions
 ): string => {
   const time = new Date(timestamp * 1000);
-  return time.toLocaleTimeString(undefined, timeOptions);
+  return time.toLocaleTimeString('en-EN', timeOptions);
 };
 
 export default function HourForecastItem({
