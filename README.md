@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Weather
 
-## Getting Started
+![GitHub Repo stars](https://img.shields.io/github/stars/bricard-dev/explore-weather)
+![GitHub forks](https://img.shields.io/github/forks/bricard-dev/explore-weather)
+![GitHub issues](https://img.shields.io/github/issues/bricard-dev/explore-weather)
 
-First, run the development server:
+Weather application with Next.js, Shadcn and TailwindCSS.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [General information](#general-information)
+  - [Technologies](#technologies)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgments)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## General Information
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This app is a compact Next.js website leveraging [OpenWeatherMap's API](https://openweathermap.org/api) to deliver real-time weather data based on user-input cities.
+With a minimalist interface, it swiftly provides current weather conditions, temperature and more, making it effortless to access accurate meteorological information for any location.
 
-## Learn More
+### Technologies
 
-To learn more about Next.js, take a look at the following resources:
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat&logo=tailwind-css&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000?logo=shadcnui&logoColor=fff)
+![Next JS](https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This GitHub repository is accessible under the MIT License, granting users the freedom to use, modify, and distribute the code with minimal restrictions.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Github [@bricard-dev](https://github.com/bricard-dev) · Email bastien.ricard-dev@outlook.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Acknowledgments
+
+- [MDN](https://developer.mozilla.org/en-US/)
+- [Next.js](https://nextjs.org)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [ReactJS](https://reactjs.org)
+- [TailwindCSS](https://tailwindcss.com/)
+- [OpenWeatherMap](https://www.openweathermap.org/)
+- [Shields.io](https://shields.io)
