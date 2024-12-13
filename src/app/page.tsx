@@ -1,5 +1,5 @@
 import WeatherInformations from '@/components/weather/informations';
-import WeatherInformationsSkeleton from '@/components/weather/informations-skeleton';
+import WeatherSkeleton from '@/components/weather/skeleton';
 import { Suspense } from 'react';
 
 export default async function Home(props: {
@@ -11,7 +11,7 @@ export default async function Home(props: {
   return (
     <main className="max-w-5xl w-full mx-auto flex-1 flex flex-col p-4">
       {query ? (
-        <Suspense key={query} fallback={<WeatherInformationsSkeleton />}>
+        <Suspense key={query} fallback={<WeatherSkeleton />}>
           <WeatherInformations query={query} />
         </Suspense>
       ) : (
