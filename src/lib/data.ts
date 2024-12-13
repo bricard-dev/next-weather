@@ -1,6 +1,7 @@
 import { HourForecast, WeatherData } from './definitions';
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5';
+const apiKey = process.env.OPENWEATHER_API_KEY;
 
 export const fetchWeather = async (
   search?: string,
@@ -10,8 +11,6 @@ export const fetchWeather = async (
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
     const response = await fetch(
       `${baseUrl}/weather?q=${search}&appid=${apiKey}&units=${units}`,
@@ -43,8 +42,6 @@ export const fetch3HourForecast = async (
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
     const response = await fetch(
       `${baseUrl}/forecast?q=${search}&appid=${apiKey}&units=${units}&cnt=${count}`,
