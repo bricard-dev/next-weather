@@ -1,3 +1,4 @@
+import { formatTime } from '@/lib/utils';
 import { SunsetIcon } from 'lucide-react';
 
 interface SunsetProps {
@@ -6,12 +7,11 @@ interface SunsetProps {
 }
 
 export default function Sunset({ sunset, sunrise }: SunsetProps) {
-  const sunsetTime = new Date(sunset * 1000);
-  const sunriseTime = new Date(sunrise * 1000);
-
   const timeOptions: Intl.DateTimeFormatOptions = {
     timeStyle: 'short',
   };
+  const sunsetTime = formatTime(sunset, timeOptions);
+  const sunriseTime = formatTime(sunrise, timeOptions);
 
   return (
     <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
@@ -20,14 +20,10 @@ export default function Sunset({ sunset, sunrise }: SunsetProps) {
           <SunsetIcon className="w-4 h-4" />
           Sunset
         </h2>
-        <p className="mb-4 text-lg">
-          {sunsetTime.toLocaleTimeString(undefined, timeOptions)}
-        </p>
+        <p className="mb-4 text-lg">{sunsetTime}</p>
       </div>
 
-      <p className="text-sm">
-        Sunrise: {sunriseTime.toLocaleTimeString(undefined, timeOptions)}
-      </p>
+      <p className="text-sm">Sunrise: {sunriseTime}</p>
     </div>
   );
 }
