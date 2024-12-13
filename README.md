@@ -1,8 +1,8 @@
 # Next Weather
 
-![GitHub Repo stars](https://img.shields.io/github/stars/bricard-dev/explore-weather)
-![GitHub forks](https://img.shields.io/github/forks/bricard-dev/explore-weather)
-![GitHub issues](https://img.shields.io/github/issues/bricard-dev/explore-weather)
+![GitHub Repo stars](https://img.shields.io/github/stars/bricard-dev/next-weather)
+![GitHub forks](https://img.shields.io/github/forks/bricard-dev/next-weather)
+![GitHub issues](https://img.shields.io/github/issues/bricard-dev/next-weather)
 
 Weather application with Next.js, Shadcn and TailwindCSS.
 
