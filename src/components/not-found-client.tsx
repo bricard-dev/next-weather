@@ -9,9 +9,11 @@ export default function NotFoundClient() {
 
   return (
     <div>
-      <h1>404 - Page not found</h1>
-      <p>The page you are looking for does not exist.</p>
-      <Link href={from}>Return to the previous page</Link>
+      <h1 className="mb-4 text-4xl font-bold">404 - Page not found</h1>
+      <p className="text-lg">The page you are looking for does not exist.</p>
+      <Link className="text-blue-500" href={from}>
+        Return to the previous page
+      </Link>
     </div>
   );
 }
