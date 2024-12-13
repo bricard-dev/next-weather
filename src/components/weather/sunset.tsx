@@ -14,14 +14,17 @@ export default function Sunset({ sunset, sunrise }: SunsetProps) {
   };
 
   return (
-    <div className="border rounded-lg p-4">
-      <h2 className="mb-2 flex items-center gap-2 font-semibold text-xs uppercase">
-        <SunsetIcon className="w-4 h-4" />
-        Sunset
-      </h2>
-      <p className="mb-4 text-lg">
-        {sunsetTime.toLocaleTimeString(undefined, timeOptions)}
-      </p>
+    <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
+      <div className="space-y-2">
+        <h2 className="flex items-center gap-2 font-semibold text-xs uppercase">
+          <SunsetIcon className="w-4 h-4" />
+          Sunset
+        </h2>
+        <p className="mb-4 text-lg">
+          {sunsetTime.toLocaleTimeString(undefined, timeOptions)}
+        </p>
+      </div>
+
       <p className="text-sm">
         Sunrise: {sunriseTime.toLocaleTimeString(undefined, timeOptions)}
       </p>

@@ -26,7 +26,7 @@ export default function DayForecastItem({
 
   return (
     <li className="pb-2 last:pb-0 grid grid-cols-4 items-center justify-between gap-2 border-b last:border-b-0">
-      <p className="text-sm">{isFirst ? 'Today' : formattedDate}</p>
+      <p className="">{isFirst ? 'Today' : formattedDate}</p>
       <WeatherIcon />
 
       <p className="flex items-center gap-1">

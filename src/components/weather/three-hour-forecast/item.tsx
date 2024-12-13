@@ -34,17 +34,17 @@ export default function HourForecastItem({
 
   return (
     <li className="flex flex-col items-center gap-2">
-      <p className="text-sm whitespace-nowrap">
+      <p className=" whitespace-nowrap">
         {isFirst ? (
           'Now'
         ) : (
           <>
-            {time} <span className="text-xs">{period}</span>
+            {time} <span className="text-sm">{period}</span>
           </>
         )}
       </p>
-      <WeatherIcon className="w-4 h-4" />
-      <p className="text-sm">{temperature}°</p>
+      <WeatherIcon />
+      <p className="">{temperature}°</p>
     </li>
   );
 }

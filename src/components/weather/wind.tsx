@@ -19,12 +19,14 @@ export default function Wind({ wind }: WindProps) {
   const direction = getWindDirection(wind.deg);
 
   return (
-    <div className="border rounded-lg p-4">
-      <h2 className="mb-2 flex items-center gap-2 font-semibold text-xs uppercase">
-        <WindIcon className="w-4 h-4" />
-        Wind
-      </h2>
-      <p className="mb-4 text-lg">{speed} km/h</p>
+    <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
+      <div className="space-y-2">
+        <h2 className="flex items-center gap-2 font-semibold text-xs uppercase">
+          <WindIcon className="w-4 h-4" />
+          Wind
+        </h2>
+        <p className="mb-4 text-lg">{speed} km/h</p>
+      </div>
       <p className="text-sm">
         {wind.deg}° {direction}
       </p>

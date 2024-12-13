@@ -8,7 +8,7 @@ export default async function Home(props: {
   const query = searchParams.query;
 
   return (
-    <main className="max-w-10xl w-full mx-auto flex-1 flex flex-col p-4">
+    <main className="max-w-6xl w-full mx-auto flex-1 flex flex-col p-4">
       {query ? (
         <Suspense key={query} fallback={<p>Loading...</p>}>
           <WeatherInformations query={query} />

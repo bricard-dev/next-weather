@@ -39,14 +39,16 @@ export default function MainWeather({ weatherData }: MainWeatherProps) {
   const WeatherIcon = getWeatherIcon(weatherData.weather[0].icon);
 
   return (
-    <div className="col-span-3 sm:col-span-2 sm:row-span-2 border rounded-lg p-4">
-      <div className="mb-2 flex justify-between items-center text-sm text-muted-foreground">
-        <p>{formattedDate}</p>
-        <p>{formattedTime}</p>
+    <div className="p-4 col-span-3 sm:col-span-2 sm:row-span-2 flex flex-col justify-between gap-4 border rounded-lg">
+      <div className="space-y-2">
+        <div className="flex justify-between items-center text-sm text-muted-foreground">
+          <p>{formattedDate}</p>
+          <p>{formattedTime}</p>
+        </div>
+        <h2 className="text-2xl font-semibold flex items-center gap-2">
+          {weatherData.name} <NavigationIcon className="w-4 h-4" />
+        </h2>
       </div>
-      <h2 className="text-2xl font-semibold flex items-center gap-2">
-        {weatherData.name} <NavigationIcon className="w-4 h-4" />
-      </h2>
       <div className="flex items-center justify-center gap-6">
         <div className="flex items-center gap-2">
           <ArrowDownIcon className="w-4 h-4" />

@@ -25,12 +25,14 @@ export default function FeelsLike({ feelsLike }: FeelsLikeProps) {
   const comment = getFeelsLikeComment(temperature);
 
   return (
-    <div className="border rounded-lg p-4">
-      <h2 className="mb-2 flex items-center gap-2 font-semibold text-xs uppercase">
-        <ThermometerIcon className="w-4 h-4" />
-        Feels like
-      </h2>
-      <p className="mb-4 text-lg">{temperature}°</p>
+    <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
+      <div className="space-y-2">
+        <h2 className="flex items-center gap-2 font-semibold text-xs uppercase">
+          <ThermometerIcon className="w-4 h-4" />
+          Feels like
+        </h2>
+        <p className="mb-4 text-lg">{temperature}°</p>
+      </div>
       <p className="text-sm">{comment}</p>
     </div>
   );
