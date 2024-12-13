@@ -1,4 +1,4 @@
-import { HourForecastData, WeatherData } from './definitions';
+import { HourForecast, WeatherData } from './definitions';
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5';
 
@@ -36,9 +36,9 @@ export const fetchWeather = async (
 
 export const fetch3HourForecast = async (
   search?: string,
-  count: number = 16,
+  count: number = 40,
   units: string = 'metric'
-): Promise<HourForecastData | undefined> => {
+): Promise<HourForecast[] | undefined> => {
   if (!search) return;
 
   try {
@@ -57,7 +57,7 @@ export const fetch3HourForecast = async (
     );
 
     const data = await response.json();
-    return data;
+    return data.list;
   } catch (error) {
     console.error('Error fetching 5-day forecast data:', error);
   }

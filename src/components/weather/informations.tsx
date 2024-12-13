@@ -1,5 +1,4 @@
-import { fetchWeather } from '@/lib/data';
-import { Suspense } from 'react';
+import { fetch3HourForecast, fetchWeather } from '@/lib/data';
 import FeelsLike from './feels-like';
 import FiveDayForecast from './five-day-forecast/list';
 import Humidity from './humidity';
@@ -17,9 +16,12 @@ interface WeatherInformationsProps {
 export default async function WeatherInformations({
   query,
 }: WeatherInformationsProps) {
-  const weatherData = await fetchWeather(query);
+  const [weatherData, forecast] = await Promise.all([
+    fetchWeather(query),
+    fetch3HourForecast(query),
+  ]);
 
-  if (!weatherData) {
+  if (!weatherData || !forecast) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center">
         <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase select-none">
@@ -32,12 +34,8 @@ export default async function WeatherInformations({
   return (
     <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
       <MainWeather weatherData={weatherData} />
-      <Suspense fallback={<div>Loading...</div>}>
-        <ThreeHourForecast query={query} />
-      </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
-        <FiveDayForecast query={query} />
-      </Suspense>
+      <ThreeHourForecast forecast={forecast.slice(0, 16)} />
+      <FiveDayForecast forecast={forecast} />
       <Sunset
         sunset={weatherData.sys.sunset}
         sunrise={weatherData.sys.sunrise}

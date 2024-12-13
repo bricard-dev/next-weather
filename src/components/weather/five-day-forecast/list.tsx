@@ -1,14 +1,9 @@
-import { fetch3HourForecast } from '@/lib/data';
-import {
-  DayAverageTemp,
-  HourForecast,
-  HourForecastData,
-} from '@/lib/definitions';
+import { DayAverageTemp, HourForecast } from '@/lib/definitions';
 import { CalendarIcon } from 'lucide-react';
 import DayForecastItem from './item';
 
 interface DayForecastProps {
-  query: string;
+  forecast: HourForecast[];
 }
 
 export const calculateWeatherIconAverage = (day: HourForecast[]): string => {
@@ -27,8 +22,8 @@ export const calculateWeatherIconAverage = (day: HourForecast[]): string => {
   return maxIcon;
 };
 
-const getForecastPerDay = (forecast: HourForecastData): DayAverageTemp[] => {
-  const forecastList = [...forecast.list];
+const getForecastPerDay = (forecast: HourForecast[]): DayAverageTemp[] => {
+  const forecastList = [...forecast];
 
   const arr = Array.from({ length: 5 }, (_, index) =>
     forecastList.slice(index * 8, (index + 1) * 8)
@@ -46,11 +41,7 @@ const getForecastPerDay = (forecast: HourForecastData): DayAverageTemp[] => {
   return arr;
 };
 
-export default async function FiveDayForecast({ query }: DayForecastProps) {
-  const forecast = await fetch3HourForecast(query, 40);
-
-  if (!forecast) return;
-
+export default function FiveDayForecast({ forecast }: DayForecastProps) {
   const forecastPerDay = getForecastPerDay(forecast);
 
   return (

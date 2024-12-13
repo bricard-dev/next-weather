@@ -44,10 +44,6 @@ export interface HourForecast {
   dt_txt: string;
 }
 
-export interface HourForecastData {
-  list: Array<HourForecast>;
-}
-
 export interface DayAverageTemp {
   date: Date;
   icon: string;

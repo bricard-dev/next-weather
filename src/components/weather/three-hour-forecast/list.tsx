@@ -1,15 +1,16 @@
-import { fetch3HourForecast } from '@/lib/data';
+import { HourForecast } from '@/lib/definitions';
 import { CalendarIcon } from 'lucide-react';
 import HourForecastItem from './item';
 
 interface ThreeHourForecastProps {
-  query: string;
+  forecast: HourForecast[] | undefined;
 }
 
-export default async function ThreeHourForecast({
-  query,
+export default function ThreeHourForecast({
+  forecast,
 }: ThreeHourForecastProps) {
-  const forecast = await fetch3HourForecast(query);
+  if (!forecast) return null;
+
   return (
     <div className="col-span-3 border rounded-lg p-4 overflow-hidden">
       <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase">
@@ -17,7 +18,7 @@ export default async function ThreeHourForecast({
         3-Hourly forecast
       </h2>
       <ul className="flex items-center gap-10 overflow-x-auto scrollbar-hide">
-        {forecast?.list.map((item, index) => (
+        {forecast?.map((item, index) => (
           <HourForecastItem
             key={item.dt}
             dt={item.dt}
