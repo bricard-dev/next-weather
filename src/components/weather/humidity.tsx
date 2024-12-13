@@ -15,7 +15,7 @@ export default function Humidity({ humidity }: HumidityProps) {
   return (
     <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
       <div className="space-y-2">
-        <h2 className="flex items-center gap-2 font-semibold text-xs uppercase">
+        <h2 className="flex items-center gap-2 font-semibold text-xs text-muted-foreground uppercase">
           <DropletIcon className="w-4 h-4" />
           Humidity
         </h2>

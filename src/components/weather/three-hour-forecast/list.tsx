@@ -21,7 +21,7 @@ export default function ThreeHourForecast({
         className
       )}
     >
-      <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase">
+      <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase">
         <CalendarIcon className="w-4 h-4" />
         3-Hourly forecast
       </h2>

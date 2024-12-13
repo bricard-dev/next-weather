@@ -56,7 +56,7 @@ export default function FiveDayForecast({
         className
       )}
     >
-      <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase">
+      <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase">
         <CalendarIcon className="w-4 h-4" />
         5-Day forecast
       </h2>

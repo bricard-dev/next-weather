@@ -22,7 +22,7 @@ export default function Sunset({ sunset, sunrise, className }: SunsetProps) {
       )}
     >
       <div className="space-y-2">
-        <h2 className="flex items-center gap-2 font-semibold text-xs uppercase">
+        <h2 className="flex items-center gap-2 font-semibold text-xs text-muted-foreground uppercase">
           <SunsetIcon className="w-4 h-4" />
           Sunset
         </h2>
