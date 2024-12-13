@@ -2,6 +2,10 @@ import { DayAverageTemp } from '@/lib/definitions';
 import { getWeatherIcon } from '@/lib/icons';
 import { ArrowDownIcon, ArrowUpIcon } from 'lucide-react';
 
+interface DayForecastItemProps extends DayAverageTemp {
+  isFirst: boolean;
+}
+
 const formatDate = (
   date: Date,
   timeOptions: Intl.DateTimeFormatOptions
@@ -9,7 +13,12 @@ const formatDate = (
   return date.toLocaleDateString('en-EN', timeOptions);
 };
 
-export default function DayForecastItem({ date, icon, temp }: DayAverageTemp) {
+export default function DayForecastItem({
+  date,
+  icon,
+  temp,
+  isFirst,
+}: DayForecastItemProps) {
   const formattedDate = formatDate(date, { weekday: 'short' });
   const WeatherIcon = getWeatherIcon(icon);
   const minTemp = Math.round(temp.min);
@@ -17,7 +26,7 @@ export default function DayForecastItem({ date, icon, temp }: DayAverageTemp) {
 
   return (
     <li className="pb-2 last:pb-0 grid grid-cols-4 items-center justify-between gap-2 border-b last:border-b-0">
-      <p>{formattedDate}</p>
+      <p className="text-sm">{isFirst ? 'Today' : formattedDate}</p>
       <WeatherIcon />
 
       <p className="flex items-center gap-1">

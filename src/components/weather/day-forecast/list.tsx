@@ -60,12 +60,13 @@ export default async function FiveDayForecast({ query }: DayForecastProps) {
         5-Day forecast
       </h2>
       <ul className="flex flex-col gap-2">
-        {forecastPerDay.map((item) => (
+        {forecastPerDay.map((item, index) => (
           <DayForecastItem
             key={item.date.getTime()}
             date={item.date}
             icon={item.icon}
             temp={item.temp}
+            isFirst={index === 0}
           />
         ))}
       </ul>
