@@ -1,7 +1,9 @@
+import { cn } from '@/lib/utils';
 import { ThermometerIcon } from 'lucide-react';
 
 interface FeelsLikeProps {
   feelsLike: number;
+  className?: string;
 }
 
 function getFeelsLikeComment(temperature: number): string {
@@ -20,14 +22,14 @@ function getFeelsLikeComment(temperature: number): string {
   }
 }
 
-export default function FeelsLike({ feelsLike }: FeelsLikeProps) {
+export default function FeelsLike({ feelsLike, className }: FeelsLikeProps) {
   const temperature = Math.round(feelsLike);
   const comment = getFeelsLikeComment(temperature);
 
   return (
-    <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
+    <div className={cn('card', className)}>
       <div className="space-y-2">
-        <h2 className="flex items-center gap-2 font-semibold text-xs text-muted-foreground uppercase">
+        <h2 className="card-title">
           <ThermometerIcon className="w-4 h-4" />
           Feels like
         </h2>

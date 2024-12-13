@@ -15,14 +15,9 @@ export default function Sunset({ sunset, sunrise, className }: SunsetProps) {
   const sunriseTime = formatTime(sunrise, timeOptions);
 
   return (
-    <div
-      className={cn(
-        'flex flex-col justify-between gap-2 border rounded-lg p-4',
-        className
-      )}
-    >
+    <div className={cn('card', className)}>
       <div className="space-y-2">
-        <h2 className="flex items-center gap-2 font-semibold text-xs text-muted-foreground uppercase">
+        <h2 className="card-title">
           <SunsetIcon className="w-4 h-4" />
           Sunset
         </h2>

@@ -30,14 +30,9 @@ export default function MainWeather({
   const WeatherIcon = getWeatherIcon(weatherData.weather[0].icon);
 
   return (
-    <div
-      className={cn(
-        'p-4 flex flex-col justify-between gap-6 border rounded-lg',
-        className
-      )}
-    >
+    <div className={cn('card', className)}>
       <div className="space-y-2">
-        <div className="flex justify-between items-center text-sm text-muted-foreground">
+        <div className="flex justify-between items-center text-muted-foreground">
           <p>{formattedDate}</p>
           <p>{formattedTime}</p>
         </div>

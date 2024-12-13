@@ -71,6 +71,16 @@ body {
   }
 }
 
+@layer components {
+  .card {
+    @apply flex flex-col justify-between gap-6 border rounded-lg p-4;
+  }
+
+  .card-title {
+    @apply flex items-center gap-2 font-semibold text-xs text-muted-foreground uppercase [&_svg]:w-4 [&_svg]:h-4 [&_svg]:flex-shrink-0;
+  }
+}
+
 @layer utilities {
   .scrollbar-hide {
     -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
@@ -80,4 +90,10 @@ body {
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Pour Chrome, Safari et Opera */
   }
+}
+
+/* Ajoutez ces styles pour que le SVG garde sa taille */
+h2 svg {
+  flex-shrink: 0;
+  min-width: fit-content;
 }

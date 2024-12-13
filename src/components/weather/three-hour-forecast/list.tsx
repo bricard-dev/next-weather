@@ -15,13 +15,8 @@ export default function ThreeHourForecast({
   if (!forecast) return null;
 
   return (
-    <div
-      className={cn(
-        'p-4 flex flex-col justify-between border rounded-lg overflow-hidden',
-        className
-      )}
-    >
-      <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase">
+    <div className={cn('card', className)}>
+      <h2 className="card-title">
         <ClockIcon className="w-4 h-4" />
         3-Hourly forecast
       </h2>
