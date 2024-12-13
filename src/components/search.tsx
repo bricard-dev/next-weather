@@ -29,7 +29,7 @@ export default function Search({ placeholder }: SearchProps) {
       <label htmlFor="search" className="sr-only">
         Search
       </label>
-      <SearchIcon className="w-4 h-4 absolute left-3" />
+      <SearchIcon className="w-4 h-4 absolute left-3 text-muted-foreground" />
       <Input
         className="pl-10 text-sm"
         placeholder={placeholder}
