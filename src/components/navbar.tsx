@@ -22,7 +22,7 @@ function Navbar() {
         <Button
           variant="default"
           onClick={() => {
-            router.push('https//github.com');
+            router.push('https://github.com/bricard-dev/next-weather');
           }}
         >
           <GithubIcon /> Source Code
