@@ -1,13 +1,17 @@
 import { WeatherData } from '@/lib/definitions';
 import { getWeatherIcon } from '@/lib/icons';
-import { capitalize, formatDate, formatTime } from '@/lib/utils';
+import { capitalize, cn, formatDate, formatTime } from '@/lib/utils';
 import { ArrowDownIcon, ArrowUpIcon, NavigationIcon } from 'lucide-react';
 
 interface MainWeatherProps {
   weatherData: WeatherData;
+  className?: string;
 }
 
-export default function MainWeather({ weatherData }: MainWeatherProps) {
+export default function MainWeather({
+  weatherData,
+  className,
+}: MainWeatherProps) {
   const formattedDate = formatDate(weatherData.dt, {
     weekday: 'long',
     month: 'short',
@@ -26,7 +30,12 @@ export default function MainWeather({ weatherData }: MainWeatherProps) {
   const WeatherIcon = getWeatherIcon(weatherData.weather[0].icon);
 
   return (
-    <div className="p-4 col-span-3 sm:col-span-2 sm:row-span-2 flex flex-col justify-between gap-6 border rounded-lg">
+    <div
+      className={cn(
+        'p-4 flex flex-col justify-between gap-6 border rounded-lg',
+        className
+      )}
+    >
       <div className="space-y-2">
         <div className="flex justify-between items-center text-sm text-muted-foreground">
           <p>{formattedDate}</p>
@@ -36,7 +45,7 @@ export default function MainWeather({ weatherData }: MainWeatherProps) {
           {weatherData.name} <NavigationIcon className="w-4 h-4" />
         </h2>
       </div>
-      <div className="flex items-center justify-center gap-6">
+      <div className="flex items-center justify-center">
         <div className="flex items-center gap-2">
           <ArrowDownIcon className="w-4 h-4" />
           <p>{temperatureMin}°</p>

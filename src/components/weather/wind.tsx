@@ -1,10 +1,13 @@
+import { cn } from '@/lib/utils';
 import { WindIcon } from 'lucide-react';
+import Compass from './compass';
 
 interface WindProps {
   wind: {
     speed: number;
     deg: number;
   };
+  className?: string;
 }
 
 function getWindDirection(deg: number): string {
@@ -14,12 +17,17 @@ function getWindDirection(deg: number): string {
   return 'W';
 }
 
-export default function Wind({ wind }: WindProps) {
+export default function Wind({ wind, className }: WindProps) {
   const speed = Math.round(wind.speed);
   const direction = getWindDirection(wind.deg);
 
   return (
-    <div className="flex flex-col justify-between gap-2 border rounded-lg p-4">
+    <div
+      className={cn(
+        'flex flex-col justify-between gap-2 border rounded-lg p-4',
+        className
+      )}
+    >
       <div className="space-y-2">
         <h2 className="flex items-center gap-2 font-semibold text-xs uppercase">
           <WindIcon className="w-4 h-4" />
@@ -27,9 +35,12 @@ export default function Wind({ wind }: WindProps) {
         </h2>
         <p className="mb-4 text-lg">{speed} km/h</p>
       </div>
-      <p className="text-sm">
-        {wind.deg}° {direction}
-      </p>
+      <div className="flex items-center justify-center gap-4">
+        <Compass degrees={wind.deg} className="max-sm:hidden" />
+        <p className="sm:hidden text-sm">
+          {wind.deg}° {direction}
+        </p>
+      </div>
     </div>
   );
 }

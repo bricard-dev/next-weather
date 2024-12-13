@@ -1,9 +1,11 @@
 import { DayAverageTemp, HourForecast } from '@/lib/definitions';
+import { cn } from '@/lib/utils';
 import { CalendarIcon } from 'lucide-react';
 import DayForecastItem from './item';
 
 interface DayForecastProps {
   forecast: HourForecast[];
+  className?: string;
 }
 
 export const calculateWeatherIconAverage = (day: HourForecast[]): string => {
@@ -41,11 +43,19 @@ const getForecastPerDay = (forecast: HourForecast[]): DayAverageTemp[] => {
   return arr;
 };
 
-export default function FiveDayForecast({ forecast }: DayForecastProps) {
+export default function FiveDayForecast({
+  forecast,
+  className,
+}: DayForecastProps) {
   const forecastPerDay = getForecastPerDay(forecast);
 
   return (
-    <div className="col-span-3 border rounded-lg p-4 overflow-hidden">
+    <div
+      className={cn(
+        'p-4 flex flex-col justify-between border rounded-lg overflow-hidden',
+        className
+      )}
+    >
       <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase">
         <CalendarIcon className="w-4 h-4" />
         5-Day forecast

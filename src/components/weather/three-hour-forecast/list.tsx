@@ -1,18 +1,26 @@
 import { HourForecast } from '@/lib/definitions';
+import { cn } from '@/lib/utils';
 import { CalendarIcon } from 'lucide-react';
 import HourForecastItem from './item';
 
 interface ThreeHourForecastProps {
   forecast: HourForecast[] | undefined;
+  className?: string;
 }
 
 export default function ThreeHourForecast({
   forecast,
+  className,
 }: ThreeHourForecastProps) {
   if (!forecast) return null;
 
   return (
-    <div className="col-span-3 border rounded-lg p-4 overflow-hidden">
+    <div
+      className={cn(
+        'p-4 flex flex-col justify-between border rounded-lg overflow-hidden',
+        className
+      )}
+    >
       <h2 className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase">
         <CalendarIcon className="w-4 h-4" />
         3-Hourly forecast

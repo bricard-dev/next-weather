@@ -33,14 +33,30 @@ export default async function WeatherInformations({
 
   return (
     <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
-      <MainWeather weatherData={weatherData} />
-      <ThreeHourForecast forecast={forecast.slice(0, 16)} />
-      <FiveDayForecast forecast={forecast} />
+      <MainWeather
+        weatherData={weatherData}
+        className="col-span-3 sm:col-span-2 sm:row-span-2"
+      />
+
+      <ThreeHourForecast
+        forecast={forecast.slice(0, 16)}
+        className="col-span-3 sm:row-span-1"
+      />
+
+      <FiveDayForecast
+        forecast={forecast}
+        className="col-span-3 sm:col-span-2 sm:row-start-3 sm:row-span-2"
+      />
+
       <Sunset
         sunset={weatherData.sys.sunset}
         sunrise={weatherData.sys.sunrise}
+        className="col-span-1"
       />
-      <Wind wind={weatherData.wind} />
+      <Wind
+        wind={weatherData.wind}
+        className="sm:row-start-3 sm:row-span-2 sm:col-start-4 sm:col-span-2"
+      />
       <Visibility visibility={weatherData.visibility} />
       <Pressure pressure={weatherData.main.pressure} />
       <FeelsLike feelsLike={weatherData.main.feels_like} />
