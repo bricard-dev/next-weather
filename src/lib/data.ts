@@ -1,13 +1,13 @@
 import { HourForecast, WeatherData } from './definitions';
 
-const baseUrl = 'https://api.openweathermap.org/data/2.5';
+const baseUrl = 'https://api.openweathermap.org/data/2.5/';
 const apiKey = process.env.OPENWEATHER_API_KEY;
 
 export const fetchWeather = async (
   search?: string,
   units: string = 'metric'
-): Promise<WeatherData | undefined> => {
-  if (!search) return;
+): Promise<{ data?: WeatherData; error?: string }> => {
+  if (!search) return {};
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -23,13 +23,23 @@ export const fetchWeather = async (
     );
 
     if (!response.ok) {
-      throw new Error('Failed to fetch weather data');
+      if (response.status === 404) {
+        const data = await response.json();
+        throw data.message;
+      }
     }
 
     const data = await response.json();
-    return data;
+    return { data };
   } catch (error) {
     console.error('Error fetching weather data:', error);
+    const errorMessage = error instanceof Error ? error.message : error;
+
+    if (errorMessage === 'city not found') {
+      return { error: 'City not found' };
+    }
+
+    return { error: 'The weather service is temporarily unavailable' };
   }
 };
 
@@ -37,8 +47,8 @@ export const fetch3HourForecast = async (
   search?: string,
   count: number = 40,
   units: string = 'metric'
-): Promise<HourForecast[] | undefined> => {
-  if (!search) return;
+): Promise<{ data?: HourForecast[]; error?: string }> => {
+  if (!search) return {};
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -53,9 +63,24 @@ export const fetch3HourForecast = async (
       }
     );
 
+    if (!response.ok) {
+      if (response.status === 404) {
+        const data = await response.json();
+        throw new Error(data.message);
+      }
+    }
+
     const data = await response.json();
-    return data.list;
+    return { data: data.list };
   } catch (error) {
-    console.error('Error fetching 5-day forecast data:', error);
+    console.error('Error fetching weather data:', error);
+    const errorMessage =
+      error instanceof Error ? error.message : 'An error occurred';
+
+    if (errorMessage === 'city not found') {
+      return { error: 'City not found' };
+    }
+
+    return { error: 'The weather service is temporarily unavailable' };
   }
 };

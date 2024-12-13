@@ -16,12 +16,22 @@ interface WeatherInformationsProps {
 export default async function WeatherInformations({
   query,
 }: WeatherInformationsProps) {
-  const [weatherData, forecast] = await Promise.all([
+  const [weatherResponse, forecastResponse] = await Promise.all([
     fetchWeather(query),
     fetch3HourForecast(query),
   ]);
 
-  if (!weatherData || !forecast) {
+  if (weatherResponse.error || forecastResponse.error) {
+    return (
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase select-none">
+          {weatherResponse.error || forecastResponse.error}
+        </p>
+      </div>
+    );
+  }
+
+  if (!weatherResponse.data || !forecastResponse.data) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center">
         <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase select-none">
@@ -30,6 +40,9 @@ export default async function WeatherInformations({
       </div>
     );
   }
+
+  const weatherData = weatherResponse.data;
+  const forecast = forecastResponse.data;
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">

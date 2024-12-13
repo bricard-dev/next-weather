@@ -91,9 +91,3 @@ body {
     display: none; /* Pour Chrome, Safari et Opera */
   }
 }
-
-/* Ajoutez ces styles pour que le SVG garde sa taille */
-h2 svg {
-  flex-shrink: 0;
-  min-width: fit-content;
-}
